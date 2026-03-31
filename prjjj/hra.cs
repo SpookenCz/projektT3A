@@ -12,20 +12,33 @@ namespace prjjj
 {
     public partial class hra : Form
     {
-        string[] otazky = new string[]
+        string[] otazkyLehke = { "Kolik je 2 + 2?", "Kolik je 1 + 2?", "Kolik je 2 + 2?", "Kolik je 2 + 2?", "Kolik je 2 + 2?", "Kolik je 2 + 2?", };
+        string[,] odpovediLehke =
         {
-            "Kolik je 2 + 2?",
+             {"3","4","5","6"}, {"3","4","5","6"}, {"3","4","5","6"}, {"3","4","5","6"}, {"3","4","5","6"}, {"3","4","5","6"},
         };
+        int[] spravnaLehke = { 1, 0, 1, 1, 1, 1 };
 
-        string[,] odpovedi = new string[,]
+        string[] otazkyStredni = { "Kolik je 5 * 5?" };
+        string[,] odpovediStredni =
         {
-            {"3","4","5","6"},
+            {"10","20","25","30"},
         };
+        int[] spravnaStredni = { 2 };
 
-        int[] spravna = new int[] {1};
+        string[] otazkyTezke = { "Kolik je 12 * 12?" };
+        string[,] odpovediTezke =
+        {
+            {"100","144","120","130"},
+        };
+        int[] spravnaTezke = { 1 };
 
         int aktualniOtazka = 0;
-
+        int obtiznost = 0; // 0 = lehká, 1 = střední, 2 = těžká
+        int pocetSpravnych = 0;
+        int[] penize = { 1000, 2000, 3000, 5000, 10000, 20000, 50000, 100000 };
+        bool[] pouzite;
+        Random rnd = new Random();
 
 
 
@@ -35,30 +48,63 @@ namespace prjjj
         {
             InitializeComponent();
             mainForm = form;
+            
         }
 
         private void hra_Load(object sender, EventArgs e)
         {
+            InicializujPouzite();
             NactiOtazku();
         }
 
         void NactiOtazku()
         {
-            labelOtazka.Text = otazky[aktualniOtazka];
-            buttonA.Text = odpovedi[aktualniOtazka, 0];
-            buttonB.Text = odpovedi[aktualniOtazka, 1];
-            buttonC.Text = odpovedi[aktualniOtazka, 2];
-            buttonD.Text = odpovedi[aktualniOtazka, 3];
+            aktualniOtazka = VyberNahodnouOtazku();
+
+            if (obtiznost == 0)
+            {
+                labelOtazka.Text = otazkyLehke[aktualniOtazka];
+                buttonA.Text = odpovediLehke[aktualniOtazka, 0];
+                buttonB.Text = odpovediLehke[aktualniOtazka, 1];
+                buttonC.Text = odpovediLehke[aktualniOtazka, 2];
+                buttonD.Text = odpovediLehke[aktualniOtazka, 3];
+            }
+            else if (obtiznost == 1)
+            {
+                labelOtazka.Text = otazkyStredni[aktualniOtazka];
+                buttonA.Text = odpovediStredni[aktualniOtazka, 0];
+                buttonB.Text = odpovediStredni[aktualniOtazka, 1];
+                buttonC.Text = odpovediStredni[aktualniOtazka, 2];
+                buttonD.Text = odpovediStredni[aktualniOtazka, 3];
+            }
+            else
+            {
+                labelOtazka.Text = otazkyTezke[aktualniOtazka];
+                buttonA.Text = odpovediTezke[aktualniOtazka, 0];
+                buttonB.Text = odpovediTezke[aktualniOtazka, 1];
+                buttonC.Text = odpovediTezke[aktualniOtazka, 2];
+                buttonD.Text = odpovediTezke[aktualniOtazka, 3];
+            }
         }
 
         void ZkontrolujOdpoved(int index)
         {
-            if (index == spravna[aktualniOtazka])
+            if (index == spravnaAktualni())
             {
                 MessageBox.Show("Správně!");
-                aktualniOtazka++;
+                pocetSpravnych++;
 
-                if (aktualniOtazka >= otazky.Length)
+                if (obtiznost == 0 && pocetSpravnych >= 5)
+                {
+                    obtiznost = 1;
+                    InicializujPouzite();
+                }
+                else if (obtiznost == 1 && pocetSpravnych >= 10)
+                {
+                    obtiznost = 2;
+                    InicializujPouzite();
+                }
+                else if (obtiznost == 2 && pocetSpravnych >= 15)
                 {
                     MessageBox.Show("Vyhrál jsi!");
                     mainForm.Show();
@@ -75,6 +121,7 @@ namespace prjjj
                 this.Close();
             }
         }
+        
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
@@ -111,6 +158,43 @@ namespace prjjj
         private void buttonD_Click(object sender, EventArgs e)
         {
             ZkontrolujOdpoved(3);
+        }
+
+        int spravnaAktualni()
+        {
+            if (obtiznost == 0)
+                return spravnaLehke[aktualniOtazka];
+            else if (obtiznost == 1)
+                return spravnaStredni[aktualniOtazka];
+            else
+                return spravnaTezke[aktualniOtazka];
+        }
+
+        void InicializujPouzite()
+        {
+            int pocet = 0;
+
+            if (obtiznost == 0)
+                pocet = otazkyLehke.Length;
+            else if (obtiznost == 1)
+                pocet = otazkyStredni.Length;
+            else
+                pocet = otazkyTezke.Length;
+
+            pouzite = new bool[pocet];
+        }
+        int VyberNahodnouOtazku()
+        {
+            int pocet = pouzite.Length;
+            int index;
+
+            do
+            {
+                index = rnd.Next(pocet);
+            } while (pouzite[index]);
+
+            pouzite[index] = true;
+            return index;
         }
     }
 }
