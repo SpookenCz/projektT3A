@@ -48,7 +48,7 @@
             labelOtazka.Name = "labelOtazka";
             labelOtazka.Size = new Size(43, 15);
             labelOtazka.TabIndex = 0;
-            labelOtazka.Text = "sdadsa";
+            labelOtazka.Text = "Otázka";
             // 
             // menuStrip1
             // 
@@ -86,7 +86,7 @@
             buttonA.Name = "buttonA";
             buttonA.Size = new Size(75, 23);
             buttonA.TabIndex = 2;
-            buttonA.Text = "button1";
+            buttonA.Text = "A";
             buttonA.UseVisualStyleBackColor = true;
             buttonA.Click += buttonA_Click;
             // 
@@ -96,7 +96,7 @@
             buttonB.Name = "buttonB";
             buttonB.Size = new Size(75, 23);
             buttonB.TabIndex = 2;
-            buttonB.Text = "button1";
+            buttonB.Text = "B";
             buttonB.UseVisualStyleBackColor = true;
             buttonB.Click += buttonB_Click;
             // 
@@ -106,7 +106,7 @@
             buttonC.Name = "buttonC";
             buttonC.Size = new Size(75, 23);
             buttonC.TabIndex = 2;
-            buttonC.Text = "button1";
+            buttonC.Text = "C";
             buttonC.UseVisualStyleBackColor = true;
             buttonC.Click += buttonC_Click;
             // 
@@ -116,7 +116,7 @@
             buttonD.Name = "buttonD";
             buttonD.Size = new Size(75, 23);
             buttonD.TabIndex = 2;
-            buttonD.Text = "button1";
+            buttonD.Text = "D";
             buttonD.UseVisualStyleBackColor = true;
             buttonD.Click += buttonD_Click;
             // 

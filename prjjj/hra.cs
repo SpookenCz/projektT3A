@@ -7,31 +7,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
 
 namespace prjjj
 {
     public partial class hra : Form
     {
-        string[] otazkyLehke = { "Kolik je 2 + 2?", "Kolik je 1 + 2?", "Kolik je 2 + 2?", "Kolik je 2 + 2?", "Kolik je 2 + 2?", "Kolik je 2 + 2?", };
+        string[] otazkyLehke = { "Kolik je 2 + 2?", "Který sport nepoužívá míč", "Jaký je chemický symbol pro kyslík?", "Jaký strom má žaludy?", "Jaké je skupenství vody při 0 °C a níž?"};
         string[,] odpovediLehke =
         {
-             {"3","4","5","6"}, {"3","4","5","6"}, {"3","4","5","6"}, {"3","4","5","6"}, {"3","4","5","6"}, {"3","4","5","6"},
+             {"3","4","5","6"}, {"Fotbal","Basketbal","Hokej","Volejbal"}, {"S","H","Hg","O"}, {"Dub","Buk","Borovice","Lípa"}, {"Plynné","Kapalné","Pevné","Žádné"},
         };
-        int[] spravnaLehke = { 1, 0, 1, 1, 1, 1 };
+        int[] spravnaLehke = {1, 2, 3, 0, 2};
 
-        string[] otazkyStredni = { "Kolik je 5 * 5?" };
+        string[] otazkyStredni = { "Kolik je 5 * 5?", "Kolik hráčů má jeden fotbalový tým na hřišti?", "Kdo složil slavnou „9. symfonii“?", "Který oceán leží mezi Amerikou a Evropou?", "Jaká měna se používá v Japonsku?", };
         string[,] odpovediStredni =
         {
-            {"10","20","25","30"},
+            {"10","20","25","30"}, {"9","10","11","12"}, {"Mozart","Beethoven","Mach","Chopin"}, {"Severní ledový","Tichý","Indický","Atlantský"}, {"Jen","Won","Chuan","Dollar"},
         };
-        int[] spravnaStredni = { 2 };
+        int[] spravnaStredni = {2, 2, 1, 3, 0};
 
         string[] otazkyTezke = { "Kolik je 12 * 12?" };
         string[,] odpovediTezke =
         {
             {"100","144","120","130"},
         };
-        int[] spravnaTezke = { 1 };
+        int[] spravnaTezke = {1,};
 
         int aktualniOtazka = 0;
         int obtiznost = 0; // 0 = lehká, 1 = střední, 2 = těžká
