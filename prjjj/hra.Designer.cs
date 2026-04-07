@@ -43,19 +43,19 @@
             // 
             // labelOtazka
             // 
-            labelOtazka.AutoSize = true;
-            labelOtazka.Location = new Point(334, 105);
+            labelOtazka.Location = new Point(50, 105);
             labelOtazka.Name = "labelOtazka";
-            labelOtazka.Size = new Size(43, 15);
+            labelOtazka.Size = new Size(671, 80);
             labelOtazka.TabIndex = 0;
             labelOtazka.Text = "Otázka";
+            labelOtazka.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // menuStrip1
             // 
             menuStrip1.Items.AddRange(new ToolStripItem[] { toolStripMenuItem1 });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(800, 24);
+            menuStrip1.Size = new Size(784, 24);
             menuStrip1.TabIndex = 1;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -82,9 +82,9 @@
             // 
             // buttonA
             // 
-            buttonA.Location = new Point(133, 274);
+            buttonA.Location = new Point(50, 250);
             buttonA.Name = "buttonA";
-            buttonA.Size = new Size(75, 23);
+            buttonA.Size = new Size(221, 45);
             buttonA.TabIndex = 2;
             buttonA.Text = "A";
             buttonA.UseVisualStyleBackColor = true;
@@ -92,9 +92,9 @@
             // 
             // buttonB
             // 
-            buttonB.Location = new Point(527, 274);
+            buttonB.Location = new Point(500, 250);
             buttonB.Name = "buttonB";
-            buttonB.Size = new Size(75, 23);
+            buttonB.Size = new Size(221, 45);
             buttonB.TabIndex = 2;
             buttonB.Text = "B";
             buttonB.UseVisualStyleBackColor = true;
@@ -102,9 +102,9 @@
             // 
             // buttonC
             // 
-            buttonC.Location = new Point(133, 360);
+            buttonC.Location = new Point(50, 360);
             buttonC.Name = "buttonC";
-            buttonC.Size = new Size(75, 23);
+            buttonC.Size = new Size(221, 45);
             buttonC.TabIndex = 2;
             buttonC.Text = "C";
             buttonC.UseVisualStyleBackColor = true;
@@ -112,9 +112,9 @@
             // 
             // buttonD
             // 
-            buttonD.Location = new Point(527, 360);
+            buttonD.Location = new Point(500, 360);
             buttonD.Name = "buttonD";
-            buttonD.Size = new Size(75, 23);
+            buttonD.Size = new Size(221, 45);
             buttonD.TabIndex = 2;
             buttonD.Text = "D";
             buttonD.UseVisualStyleBackColor = true;
@@ -124,7 +124,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(784, 461);
             Controls.Add(buttonD);
             Controls.Add(buttonC);
             Controls.Add(buttonB);

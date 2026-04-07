@@ -13,7 +13,7 @@ namespace prjjj
 {
     public partial class hra : Form
     {
-        string[] otazkyLehke = { "Kolik je 2 + 2?", "Který sport nepoužívá míč", "Jaký je chemický symbol pro kyslík?", "Jaký strom má žaludy?", "Jaké je skupenství vody při 0 °C a níž?"};
+        string[] otazkyLehke = {"Kolik je 2 + 2?", "Který sport nepoužívá míč", "Jaký je chemický symbol pro kyslík?", "Jaký strom má žaludy?", "Jaké je skupenství vody při 0 °C a níž?"};
         string[,] odpovediLehke =
         {
              {"3","4","5","6"}, {"Fotbal","Basketbal","Hokej","Volejbal"}, {"S","H","Hg","O"}, {"Dub","Buk","Borovice","Lípa"}, {"Plynné","Kapalné","Pevné","Žádné"},
@@ -27,12 +27,12 @@ namespace prjjj
         };
         int[] spravnaStredni = {2, 2, 1, 3, 0};
 
-        string[] otazkyTezke = { "Kolik je 12 * 12?" };
+        string[] otazkyTezke = {"Kolik je 12 * 12?", "Jaký vynález je spojen s bratry Wrightovými?", "Jaký je hlavní prvek v jádru hvězd?", "Kdo byl poslední panovník Ruska před revolucí v roce 1917?", "Který chemik vyvinul periodickou tabulku prvků?", };
         string[,] odpovediTezke =
         {
-            {"100","144","120","130"},
+            {"100","144","120","130"}, {"Letadlo","Auto","Rádio","Motocykl"}, {"Helium","Kyslík","Vodík","Uhlík"}, {"Ivan Hrozný","Petr Veliký","Alexandra I.","Mikuláš II."}, {"Mendělejev","Einstein","Curie","Lavoisier"},
         };
-        int[] spravnaTezke = {1,};
+        int[] spravnaTezke = {1, 0, 2, 3, 0};
 
         int aktualniOtazka = 0;
         int obtiznost = 0; // 0 = lehká, 1 = střední, 2 = těžká
