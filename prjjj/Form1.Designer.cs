@@ -97,6 +97,7 @@
             Controls.Add(button1);
             DoubleBuffered = true;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
             Name = "Form1";
             Text = "Milionář";
             Load += Form1_Load;

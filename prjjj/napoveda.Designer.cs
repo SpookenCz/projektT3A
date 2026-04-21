@@ -44,9 +44,9 @@
             // 
             // button1
             // 
-            button1.Location = new Point(281, 347);
+            button1.Location = new Point(252, 336);
             button1.Name = "button1";
-            button1.Size = new Size(137, 23);
+            button1.Size = new Size(218, 65);
             button1.TabIndex = 1;
             button1.Text = "Zavřít nápovědu";
             button1.UseVisualStyleBackColor = true;
@@ -56,6 +56,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.Silver;
             ClientSize = new Size(800, 450);
             Controls.Add(button1);
             Controls.Add(label1);

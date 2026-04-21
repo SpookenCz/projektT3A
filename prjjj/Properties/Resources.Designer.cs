@@ -63,9 +63,29 @@ namespace prjjj.Properties {
         /// <summary>
         ///   Vyhledává lokalizovaný prostředek typu System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Gemini_Generated_Image_8i2opa8i2opa8i2o {
+            get {
+                object obj = ResourceManager.GetObject("Gemini_Generated_Image_8i2opa8i2opa8i2o", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Vyhledává lokalizovaný prostředek typu System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Gemini_Generated_Image_he2rawhe2rawhe2r {
             get {
                 object obj = ResourceManager.GetObject("Gemini_Generated_Image_he2rawhe2rawhe2r", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Vyhledává lokalizovaný prostředek typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Gemini_Generated_Image_wommsuwommsuwomm {
+            get {
+                object obj = ResourceManager.GetObject("Gemini_Generated_Image_wommsuwommsuwomm", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

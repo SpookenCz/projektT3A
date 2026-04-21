@@ -34,6 +34,7 @@
             toolStripMenuItem1 = new ToolStripMenuItem();
             toolStripMenuItem2 = new ToolStripMenuItem();
             nápovědaToolStripMenuItem = new ToolStripMenuItem();
+            ukončitAplikaciToolStripMenuItem = new ToolStripMenuItem();
             buttonA = new Button();
             buttonB = new Button();
             buttonC = new Button();
@@ -43,25 +44,28 @@
             // 
             // labelOtazka
             // 
-            labelOtazka.Location = new Point(50, 105);
+            labelOtazka.BackColor = Color.Transparent;
+            labelOtazka.ForeColor = SystemColors.Control;
+            labelOtazka.Location = new Point(225, 383);
             labelOtazka.Name = "labelOtazka";
-            labelOtazka.Size = new Size(671, 80);
+            labelOtazka.Size = new Size(570, 62);
             labelOtazka.TabIndex = 0;
             labelOtazka.Text = "Otázka";
             labelOtazka.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // menuStrip1
             // 
+            menuStrip1.BackColor = SystemColors.ButtonShadow;
             menuStrip1.Items.AddRange(new ToolStripItem[] { toolStripMenuItem1 });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(784, 24);
+            menuStrip1.Size = new Size(1014, 24);
             menuStrip1.TabIndex = 1;
             menuStrip1.Text = "menuStrip1";
             // 
             // toolStripMenuItem1
             // 
-            toolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { toolStripMenuItem2, nápovědaToolStripMenuItem });
+            toolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { toolStripMenuItem2, nápovědaToolStripMenuItem, ukončitAplikaciToolStripMenuItem });
             toolStripMenuItem1.Name = "toolStripMenuItem1";
             toolStripMenuItem1.Size = new Size(50, 20);
             toolStripMenuItem1.Text = "Menu";
@@ -69,70 +73,87 @@
             // toolStripMenuItem2
             // 
             toolStripMenuItem2.Name = "toolStripMenuItem2";
-            toolStripMenuItem2.Size = new Size(142, 22);
+            toolStripMenuItem2.Size = new Size(160, 22);
             toolStripMenuItem2.Text = "Hlavní menu";
             toolStripMenuItem2.Click += toolStripMenuItem2_Click;
             // 
             // nápovědaToolStripMenuItem
             // 
             nápovědaToolStripMenuItem.Name = "nápovědaToolStripMenuItem";
-            nápovědaToolStripMenuItem.Size = new Size(142, 22);
+            nápovědaToolStripMenuItem.Size = new Size(160, 22);
             nápovědaToolStripMenuItem.Text = "Nápověda";
             nápovědaToolStripMenuItem.Click += nápovědaToolStripMenuItem_Click;
             // 
+            // ukončitAplikaciToolStripMenuItem
+            // 
+            ukončitAplikaciToolStripMenuItem.Name = "ukončitAplikaciToolStripMenuItem";
+            ukončitAplikaciToolStripMenuItem.Size = new Size(160, 22);
+            ukončitAplikaciToolStripMenuItem.Text = "Ukončit Aplikaci";
+            ukončitAplikaciToolStripMenuItem.Click += ukončitAplikaciToolStripMenuItem_Click;
+            // 
             // buttonA
             // 
-            buttonA.Location = new Point(50, 250);
+            buttonA.BackColor = Color.Transparent;
+            buttonA.Location = new Point(224, 457);
             buttonA.Name = "buttonA";
-            buttonA.Size = new Size(221, 45);
+            buttonA.Size = new Size(270, 30);
             buttonA.TabIndex = 2;
             buttonA.Text = "A";
-            buttonA.UseVisualStyleBackColor = true;
+            buttonA.UseVisualStyleBackColor = false;
             buttonA.Click += buttonA_Click;
             // 
             // buttonB
             // 
-            buttonB.Location = new Point(500, 250);
+            buttonB.BackColor = Color.Transparent;
+            buttonB.ForeColor = SystemColors.ControlText;
+            buttonB.Location = new Point(525, 459);
             buttonB.Name = "buttonB";
-            buttonB.Size = new Size(221, 45);
+            buttonB.Size = new Size(270, 30);
             buttonB.TabIndex = 2;
             buttonB.Text = "B";
-            buttonB.UseVisualStyleBackColor = true;
+            buttonB.UseVisualStyleBackColor = false;
             buttonB.Click += buttonB_Click;
             // 
             // buttonC
             // 
-            buttonC.Location = new Point(50, 360);
+            buttonC.BackColor = Color.Transparent;
+            buttonC.Location = new Point(225, 500);
             buttonC.Name = "buttonC";
-            buttonC.Size = new Size(221, 45);
+            buttonC.Size = new Size(270, 30);
             buttonC.TabIndex = 2;
             buttonC.Text = "C";
-            buttonC.UseVisualStyleBackColor = true;
+            buttonC.UseVisualStyleBackColor = false;
             buttonC.Click += buttonC_Click;
             // 
             // buttonD
             // 
-            buttonD.Location = new Point(500, 360);
+            buttonD.BackColor = Color.Transparent;
+            buttonD.Location = new Point(525, 501);
             buttonD.Name = "buttonD";
-            buttonD.Size = new Size(221, 45);
+            buttonD.Size = new Size(270, 30);
             buttonD.TabIndex = 2;
             buttonD.Text = "D";
-            buttonD.UseVisualStyleBackColor = true;
+            buttonD.UseVisualStyleBackColor = false;
             buttonD.Click += buttonD_Click;
             // 
             // hra
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(784, 461);
+            BackColor = SystemColors.ActiveBorder;
+            BackgroundImage = Properties.Resources.Gemini_Generated_Image_8i2opa8i2opa8i2o;
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(1014, 560);
             Controls.Add(buttonD);
             Controls.Add(buttonC);
             Controls.Add(buttonB);
             Controls.Add(buttonA);
             Controls.Add(labelOtazka);
             Controls.Add(menuStrip1);
+            DoubleBuffered = true;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menuStrip1;
+            MaximizeBox = false;
             Name = "hra";
             Text = "Milionář";
             Load += hra_Load;
@@ -153,5 +174,6 @@
         private Button buttonB;
         private Button buttonC;
         private Button buttonD;
+        private ToolStripMenuItem ukončitAplikaciToolStripMenuItem;
     }
 }

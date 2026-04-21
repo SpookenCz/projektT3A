@@ -13,31 +13,31 @@ namespace prjjj
 {
     public partial class hra : Form
     {
-        string[] otazkyLehke = {"Kolik je 2 + 2?", "Který sport nepoužívá míč", "Jaký je chemický symbol pro kyslík?", "Jaký strom má žaludy?", "Jaké je skupenství vody při 0 °C a níž?"};
+        string[] otazkyLehke = { "Kolik je 2 + 2?", "Který sport nepoužívá míč", "Jaký je chemický symbol pro kyslík?", "Jaký strom má žaludy?", "Jaké je skupenství vody při 0 °C a níž?" };
         string[,] odpovediLehke =
         {
              {"3","4","5","6"}, {"Fotbal","Basketbal","Hokej","Volejbal"}, {"S","H","Hg","O"}, {"Dub","Buk","Borovice","Lípa"}, {"Plynné","Kapalné","Pevné","Žádné"},
         };
-        int[] spravnaLehke = {1, 2, 3, 0, 2};
+        int[] spravnaLehke = { 1, 2, 3, 0, 2 };
 
         string[] otazkyStredni = { "Kolik je 5 * 5?", "Kolik hráčů má jeden fotbalový tým na hřišti?", "Kdo složil slavnou „9. symfonii“?", "Který oceán leží mezi Amerikou a Evropou?", "Jaká měna se používá v Japonsku?", };
         string[,] odpovediStredni =
         {
             {"10","20","25","30"}, {"9","10","11","12"}, {"Mozart","Beethoven","Mach","Chopin"}, {"Severní ledový","Tichý","Indický","Atlantský"}, {"Jen","Won","Chuan","Dollar"},
         };
-        int[] spravnaStredni = {2, 2, 1, 3, 0};
+        int[] spravnaStredni = { 2, 2, 1, 3, 0 };
 
-        string[] otazkyTezke = {"Kolik je 12 * 12?", "Jaký vynález je spojen s bratry Wrightovými?", "Jaký je hlavní prvek v jádru hvězd?", "Kdo byl poslední panovník Ruska před revolucí v roce 1917?", "Který chemik vyvinul periodickou tabulku prvků?", };
+        string[] otazkyTezke = { "Kolik je 12 * 12?", "Jaký vynález je spojen s bratry Wrightovými?", "Jaký je hlavní prvek v jádru hvězd?", "Kdo byl poslední panovník Ruska před revolucí v roce 1917?", "Který chemik vyvinul periodickou tabulku prvků?", };
         string[,] odpovediTezke =
         {
             {"100","144","120","130"}, {"Letadlo","Auto","Rádio","Motocykl"}, {"Helium","Kyslík","Vodík","Uhlík"}, {"Ivan Hrozný","Petr Veliký","Alexandra I.","Mikuláš II."}, {"Mendělejev","Einstein","Curie","Lavoisier"},
         };
-        int[] spravnaTezke = {1, 0, 2, 3, 0};
+        int[] spravnaTezke = { 1, 0, 2, 3, 0 };
 
         int aktualniOtazka = 0;
         int obtiznost = 0; // 0 = lehká, 1 = střední, 2 = těžká
-        int pocetSpravnych = 0;
-        int[] penize = { 1000, 2000, 3000, 5000, 10000, 20000, 50000, 100000 };
+        int pocetSpravnych = 1;
+        int[] penize = { 0, 1000, 2000, 5000, 10000, 20000, 40000, 80000, 160000, 320000, 640000, 1250000, 2500000, 5000000, 10000000 };
         bool[] pouzite;
         Random rnd = new Random();
 
@@ -49,7 +49,7 @@ namespace prjjj
         {
             InitializeComponent();
             mainForm = form;
-            
+
         }
 
         private void hra_Load(object sender, EventArgs e)
@@ -64,27 +64,27 @@ namespace prjjj
 
             if (obtiznost == 0)
             {
-                labelOtazka.Text = otazkyLehke[aktualniOtazka];
-                buttonA.Text = odpovediLehke[aktualniOtazka, 0];
-                buttonB.Text = odpovediLehke[aktualniOtazka, 1];
-                buttonC.Text = odpovediLehke[aktualniOtazka, 2];
-                buttonD.Text = odpovediLehke[aktualniOtazka, 3];
+                labelOtazka.Text = pocetSpravnych + ". " + otazkyLehke[aktualniOtazka];
+                buttonA.Text = "A: " + odpovediLehke[aktualniOtazka, 0];
+                buttonB.Text = "B: " + odpovediLehke[aktualniOtazka, 1];
+                buttonC.Text = "C: " + odpovediLehke[aktualniOtazka, 2];
+                buttonD.Text = "D: " + odpovediLehke[aktualniOtazka, 3];
             }
             else if (obtiznost == 1)
             {
-                labelOtazka.Text = otazkyStredni[aktualniOtazka];
-                buttonA.Text = odpovediStredni[aktualniOtazka, 0];
-                buttonB.Text = odpovediStredni[aktualniOtazka, 1];
-                buttonC.Text = odpovediStredni[aktualniOtazka, 2];
-                buttonD.Text = odpovediStredni[aktualniOtazka, 3];
+                labelOtazka.Text = pocetSpravnych + ". " + otazkyStredni[aktualniOtazka];
+                buttonA.Text = "A: " + odpovediStredni[aktualniOtazka, 0];
+                buttonB.Text = "B: " + odpovediStredni[aktualniOtazka, 1];
+                buttonC.Text = "C: " + odpovediStredni[aktualniOtazka, 2];
+                buttonD.Text = "D: " + odpovediStredni[aktualniOtazka, 3];
             }
             else
             {
-                labelOtazka.Text = otazkyTezke[aktualniOtazka];
-                buttonA.Text = odpovediTezke[aktualniOtazka, 0];
-                buttonB.Text = odpovediTezke[aktualniOtazka, 1];
-                buttonC.Text = odpovediTezke[aktualniOtazka, 2];
-                buttonD.Text = odpovediTezke[aktualniOtazka, 3];
+                labelOtazka.Text = pocetSpravnych + ". " + otazkyTezke[aktualniOtazka];
+                buttonA.Text = "A: " + odpovediTezke[aktualniOtazka, 0];
+                buttonB.Text = "B: " + odpovediTezke[aktualniOtazka, 1];
+                buttonC.Text = "C: " + odpovediTezke[aktualniOtazka, 2];
+                buttonD.Text = "D: " + odpovediTezke[aktualniOtazka, 3];
             }
         }
 
@@ -95,17 +95,17 @@ namespace prjjj
                 MessageBox.Show("Správně!");
                 pocetSpravnych++;
 
-                if (obtiznost == 0 && pocetSpravnych >= 5)
+                if (obtiznost == 0 && pocetSpravnych > 5)
                 {
                     obtiznost = 1;
                     InicializujPouzite();
                 }
-                else if (obtiznost == 1 && pocetSpravnych >= 10)
+                else if (obtiznost == 1 && pocetSpravnych > 10)
                 {
                     obtiznost = 2;
                     InicializujPouzite();
                 }
-                else if (obtiznost == 2 && pocetSpravnych >= 15)
+                else if (obtiznost == 2 && pocetSpravnych > 15)
                 {
                     MessageBox.Show("Vyhrál jsi!");
                     mainForm.Show();
@@ -122,7 +122,7 @@ namespace prjjj
                 this.Close();
             }
         }
-        
+
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
@@ -196,6 +196,17 @@ namespace prjjj
 
             pouzite[index] = true;
             return index;
+        }
+
+        private void ukončitAplikaciToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult vysledek = MessageBox.Show("Opravdu chceš vypnout hru?", "Potvrzení", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (vysledek == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            
         }
     }
 }
