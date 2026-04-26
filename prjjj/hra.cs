@@ -41,6 +41,7 @@ namespace prjjj
         bool[] pouzite;
         Random rnd = new Random();
         int posun = 0;
+        bool[] aktivniOdpovedi = { true, true, true, true };
 
 
         private Form1 mainForm;
@@ -66,6 +67,10 @@ namespace prjjj
 
         void NactiOtazku()
         {
+            for (int i = 0; i < 4; i++)
+            {
+                aktivniOdpovedi[i] = true;
+            }
             aktualniOtazka = VyberNahodnouOtazku();
 
             buttonA.Enabled = true;
@@ -285,26 +290,85 @@ namespace prjjj
                     {
                         buttonA.Text = "A: nic";
                         buttonA.Enabled = false;
+                        aktivniOdpovedi[i] = false;
                     }
                     if (i == 1)
                     {
                         buttonB.Text = "B: nic";
                         buttonB.Enabled = false;
+                        aktivniOdpovedi[i] = false;
                     }
                     if (i == 2)
                     {
                         buttonC.Text = "C: nic";
                         buttonC.Enabled = false;
+                        aktivniOdpovedi[i] = false;
                     }
                     if (i == 3)
                     {
                         buttonD.Text = "D: nic";
                         buttonD.Enabled = false;
+                        aktivniOdpovedi[i] = false;
                     }
                 }
             }
             button2.Enabled = false;
             pictureBox1.Visible = true;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            button1.Enabled = false;
+            pictureBox3.Visible = true;
+
+            int spravna = spravnaAktualni();
+            int[] procenta = new int[4];
+
+            int spravneProcenta;
+
+            if (obtiznost == 0) spravneProcenta = rnd.Next(60, 81);
+            else if (obtiznost == 1) spravneProcenta = rnd.Next(40, 61);
+            else spravneProcenta = rnd.Next(25, 41);
+
+            procenta[spravna] = spravneProcenta;
+
+            int zbytek = 100 - spravneProcenta;
+
+            int pocetAktivnich = 0;
+            for (int i = 0; i < 4; i++)
+            {
+                if (i != spravna && aktivniOdpovedi[i])
+                    pocetAktivnich++;
+            }
+
+            for (int i = 0; i < 4; i++)
+            {
+                if (i != spravna && aktivniOdpovedi[i])
+                {
+                    int nahodne;
+
+                    if (pocetAktivnich > 1)
+                    {
+                        nahodne = rnd.Next(0, zbytek + 1);
+                    }
+                    else
+                    {
+                        nahodne = zbytek;
+                    }
+
+                    procenta[i] = nahodne;
+                    zbytek -= nahodne;
+                    pocetAktivnich--;
+                }
+            }
+
+            MessageBox.Show($"A: {procenta[0]}%\nB: {procenta[1]}%\nC: {procenta[2]}%\nD: {procenta[3]}%", "Hlasování publika");
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            button3.Enabled = false;
+            pictureBox2.Visible = true;
         }
     }
 }
