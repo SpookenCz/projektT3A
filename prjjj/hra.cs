@@ -37,10 +37,10 @@ namespace prjjj
         int aktualniOtazka = 0;
         int obtiznost = 0; // 0 = lehká, 1 = střední, 2 = těžká
         int pocetSpravnych = 1;
-        int[] penize = { 0, 1000, 2000, 5000, 10000, 20000, 40000, 80000, 160000, 320000, 640000, 1250000, 2500000, 5000000, 10000000 };
+        int[] penize = { 1000, 2000, 3000, 4000, 5000, 10000, 20000, 50000, 75000, 100000, 250000, 500000, 690420, 750000, 1000000 };
         bool[] pouzite;
         Random rnd = new Random();
-
+        int posun = 0;
 
 
         private Form1 mainForm;
@@ -56,11 +56,22 @@ namespace prjjj
         {
             InicializujPouzite();
             NactiOtazku();
+            label1.Text = penize[0].ToString() + " Kč";
+            label2.Text = penize[1].ToString() + " Kč";
+            label3.Text = penize[2].ToString() + " Kč";
+            label4.Text = penize[3].ToString() + " Kč";
+            label5.Text = penize[4].ToString() + " Kč";
+            label1.BackColor = Color.DarkOrange;
         }
 
         void NactiOtazku()
         {
             aktualniOtazka = VyberNahodnouOtazku();
+
+            buttonA.Enabled = true;
+            buttonB.Enabled = true;
+            buttonC.Enabled = true;
+            buttonD.Enabled = true;
 
             if (obtiznost == 0)
             {
@@ -94,6 +105,44 @@ namespace prjjj
             {
                 MessageBox.Show("Správně!");
                 pocetSpravnych++;
+                if (pocetSpravnych == 14)
+                {
+                    posun++;
+                }
+                if (posun == 0)
+                {
+                    label1.BackColor = Color.DarkGreen;
+                    label2.BackColor = Color.DarkOrange;
+                    posun++;
+                }
+                else if (posun == 1)
+                {
+                    label2.BackColor = Color.DarkGreen;
+                    label3.BackColor = Color.DarkOrange;
+                    posun++;
+                }
+                else if (posun == 2)
+                {
+                    label1.Text = penize[pocetSpravnych - 3].ToString() + " Kč";
+                    label2.Text = penize[pocetSpravnych - 2].ToString() + " Kč";
+                    label3.Text = penize[pocetSpravnych - 1].ToString() + " Kč";
+                    label4.Text = penize[pocetSpravnych].ToString() + " Kč";
+                    label5.Text = penize[pocetSpravnych + 1].ToString() + " Kč";
+                }
+                else if (posun == 3)
+                {
+                    label3.BackColor = Color.DarkGreen;
+                    label4.BackColor = Color.DarkOrange;
+                    posun++;
+                }
+                else if (posun == 4)
+                {
+                    label4.BackColor = Color.DarkGreen;
+                    label5.BackColor = Color.DarkOrange;
+                }
+
+
+
 
                 if (obtiznost == 0 && pocetSpravnych > 5)
                 {
@@ -107,6 +156,7 @@ namespace prjjj
                 }
                 else if (obtiznost == 2 && pocetSpravnych > 15)
                 {
+                    label5.BackColor = Color.DarkGreen;
                     MessageBox.Show("Vyhrál jsi!");
                     mainForm.Show();
                     this.Close();
@@ -206,7 +256,55 @@ namespace prjjj
             {
                 Application.Exit();
             }
-            
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int spravna = spravnaAktualni();
+
+            int[] spatne = new int[3];
+            int index = 0;
+
+            for (int i = 0; i < 4; i++)
+            {
+                if (i != spravna)
+                {
+                    spatne[index] = i;
+                    index++;
+                }
+            }
+
+            int nahodnaSpatna = spatne[rnd.Next(3)];
+
+            for (int i = 0; i < 4; i++)
+            {
+                if (i != spravna && i != nahodnaSpatna)
+                {
+                    if (i == 0)
+                    {
+                        buttonA.Text = "A: nic";
+                        buttonA.Enabled = false;
+                    }
+                    if (i == 1)
+                    {
+                        buttonB.Text = "B: nic";
+                        buttonB.Enabled = false;
+                    }
+                    if (i == 2)
+                    {
+                        buttonC.Text = "C: nic";
+                        buttonC.Enabled = false;
+                    }
+                    if (i == 3)
+                    {
+                        buttonD.Text = "D: nic";
+                        buttonD.Enabled = false;
+                    }
+                }
+            }
+            button2.Enabled = false;
+            pictureBox1.Visible = true;
         }
     }
 }
