@@ -369,6 +369,63 @@ namespace prjjj
         {
             button3.Enabled = false;
             pictureBox2.Visible = true;
+            int spravna = spravnaAktualni();
+            int tip;
+            int sance;
+            int[] aktivni = new int[4];
+            int pocet = 0;
+
+            for (int i = 0; i < 4; i++)
+            {
+                if (aktivniOdpovedi[i])
+                {
+                    aktivni[pocet] = i;
+                    pocet++;
+                }
+            }
+
+            if (obtiznost == 0) sance = 95;
+            else if (obtiznost == 1) sance = 75;
+            else sance = 50;
+
+            if (aktivniOdpovedi[spravna] && rnd.Next(100) < sance)
+            {
+                tip = spravna;
+            }
+            else
+            {
+                tip = aktivni[rnd.Next(pocet)];
+            }
+
+            string[] pismena = { "A", "B", "C", "D" };
+
+            int styl = rnd.Next(4);
+
+            string zprava = "";
+            string kamos = "";
+
+            if (styl == 0)
+            {
+                kamos = "Jeffrey";
+                zprava = $"Jo, tohle vím jistě! Je to {pismena[tip]}.";
+
+            }
+            else if (styl == 1)
+            {
+                kamos = "Checkpoint Blinker";
+                zprava = $"Hmm... nejsem si úplně jistý, ale tipnul bych {pismena[tip]}.";
+            }
+            else if (styl == 2)
+            {
+                kamos = "Milhouse";
+                zprava = "Co je tohle za prank? *ukončil hovor*";
+            }
+            else
+            {
+                kamos = "Chamtivý Žigr";
+                zprava = $"Musí to být za mě {pismena[tip]}! Dej mi pak aspoň půlku jak vyhraješ.";
+            }
+            MessageBox.Show(zprava, kamos);
         }
     }
 }
