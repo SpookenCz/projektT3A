@@ -63,6 +63,8 @@ namespace prjjj
             label4.Text = penize[3].ToString() + " Kč";
             label5.Text = penize[4].ToString() + " Kč";
             label1.BackColor = Color.DarkOrange;
+            label5.ForeColor = Color.DarkGray;
+
         }
 
         void NactiOtazku()
@@ -102,14 +104,22 @@ namespace prjjj
                 buttonC.Text = "C: " + odpovediTezke[aktualniOtazka, 2];
                 buttonD.Text = "D: " + odpovediTezke[aktualniOtazka, 3];
             }
+
         }
 
         void ZkontrolujOdpoved(int index)
         {
+
             if (index == spravnaAktualni())
             {
-                MessageBox.Show("Správně!");
+                MessageBox.Show("Správně!", "Milionář");
                 pocetSpravnych++;
+                label1.ForeColor = Color.White;
+                label2.ForeColor = Color.White;
+                label3.ForeColor = Color.White;
+                label4.ForeColor = Color.White;
+                label5.ForeColor = Color.White;
+
                 if (pocetSpravnych == 14)
                 {
                     posun++;
@@ -146,6 +156,27 @@ namespace prjjj
                     label5.BackColor = Color.DarkOrange;
                 }
 
+                if (label1.Text == "5000 Kč" || label1.Text == "100000 Kč" || label1.Text == "1000000 Kč")
+                {
+                    label1.ForeColor = Color.DarkGray;
+                }
+                if (label2.Text == "5000 Kč" || label2.Text == "100000 Kč" || label2.Text == "1000000 Kč")
+                {
+                    label2.ForeColor = Color.DarkGray;
+                }
+                if (label3.Text == "5000 Kč" || label3.Text == "100000 Kč" || label3.Text == "1000000 Kč")
+                {
+                    label3.ForeColor = Color.DarkGray;
+                }
+                if (label4.Text == "5000 Kč" || label4.Text == "100000 Kč" || label4.Text == "1000000 Kč")
+                {
+                    label4.ForeColor = Color.DarkGray;
+                }
+                if (label5.Text == "5000 Kč" || label5.Text == "100000 Kč" || label5.Text == "1000000 Kč")
+                {
+                    label5.ForeColor = Color.DarkGray;
+                }
+
 
 
 
@@ -162,7 +193,7 @@ namespace prjjj
                 else if (obtiznost == 2 && pocetSpravnych > 15)
                 {
                     label5.BackColor = Color.DarkGreen;
-                    MessageBox.Show("Vyhrál jsi!");
+                    MessageBox.Show("Vyhrál jsi 1 000 000 Kč!");
                     mainForm.Show();
                     this.Close();
                     return;
@@ -172,7 +203,19 @@ namespace prjjj
             }
             else
             {
-                MessageBox.Show("Špatně!");
+                if (pocetSpravnych < 6)
+                {
+                    MessageBox.Show("Jste strašný Milhouse, nevyhrál jste ani korunu, nevracejte se tu už nikdy!", "Konec");
+                }
+                else if (pocetSpravnych < 11)
+                {
+                    MessageBox.Show("Bohužel, ale vyhráváte aspoň 5 000 Kč", "Konec");
+                }
+                else if (pocetSpravnych < 16)
+                {
+                    MessageBox.Show("Špatná odpověď, ale dokázal jste vyhrát alespoň 100 000 Kč", "Konec");
+                }
+
                 mainForm.Show();
                 this.Close();
             }
