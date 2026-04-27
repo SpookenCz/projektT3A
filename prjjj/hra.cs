@@ -217,15 +217,15 @@ namespace prjjj
 
                 if (pocetSpravnych < 6)
                 {
-                    MessageBox.Show($"Jste strašný Milhouse, nevyhrál jste ani korunu, nevracejte se tu už nikdy!. Správná odpověď byla za {spr}", "Konec");
+                    MessageBox.Show($"Jste strašný Milhouse, nevyhrál jste ani korunu, nevracejte se tu už nikdy! Správná odpověď byla za {spr}.", "Konec");
                 }
                 else if (pocetSpravnych < 11)
                 {
-                    MessageBox.Show($"Bohužel, ale vyhráváte aspoň 5 000 Kč. Správná odpověď byla za {spr}", "Konec");
+                    MessageBox.Show($"Bohužel, ale vyhráváte aspoň 5 000 Kč. Správná odpověď byla za {spr}.", "Konec");
                 }
                 else if (pocetSpravnych < 16)
                 {
-                    MessageBox.Show($"Špatná odpověď, ale dokázal jste vyhrát alespoň 100 000 Kč. Správná odpověď byla za {spr}", "Konec");
+                    MessageBox.Show($"Špatná odpověď, ale dokázal jste vyhrát alespoň 100 000 Kč. Správná odpověď byla za {spr}.", "Konec");
                 }
 
                 mainForm.Show();
