@@ -322,6 +322,7 @@
             Controls.Add(labelOtazka);
             Controls.Add(menuStrip1);
             DoubleBuffered = true;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menuStrip1;
             MaximizeBox = false;

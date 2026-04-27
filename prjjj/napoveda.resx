@@ -117,6 +117,27 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="richTextBox1.Text" xml:space="preserve">
+    <value>Vítejte ve hře Chcete se stát milionářem!
+
+Vaším cílem je správně odpovědět na 15 otázek a vyhrát hlavní cenu 1 000 000 Kč. Otázky jsou seřazeny od nejlehčích po nejtěžší. U každé otázky máte na výběr čtyři možnosti odpovědi – A, B, C nebo D – a vaším úkolem je vybrat tu jednu správnou.
+
+Pokud odpovíte správně, postoupíte na další otázku a vyhraná částka se zvyšuje. Pokud odpovíte špatně, hra končí a přicházíte o vyhranou částku – s výjimkou garantovaných mezníků. Ty jsou na 5. a 10. otázce. Pokud jich dosáhnete, tato částka vám zůstane i v případě špatné odpovědi.
+
+Během hry máte k dispozici tři nápovědy, každou lze použít pouze jednou:
+
+Telefon příteli – Zavoláte příteli a máte přibližně 30 sekund na to, aby vám poradil. Přítel nemusí znát správnou odpověď, ale může vám pomoci se rozhodnout.
+
+Hlas publika – Publikum v sále hlasuje pro odpověď, o které si myslí, že je správná. Výsledky se zobrazí jako procentuální rozložení hlasů. Publikum bývá velmi spolehlivé zejména u lehčích otázek.
+
+50:50 – Počítač odstraní dvě špatné odpovědi a zůstanou pouze dvě možnosti. Šance na správnou odpověď se tím zdvojnásobí, ale volba je stále na vás.
+
+Nápovědy lze kombinovat – například nejdřív použít 50:50 a poté zavolat příteli. Nápovědu však musíte použít před tím, než se rozhodnete pro finální odpověď.
+
+Pokud si nejste jistí a nechcete riskovat ztrátu vyhraných peněz, můžete hru kdykoliv ukončit a odejít s aktuálně vyhrané částkou.
+
+Hodně štěstí!</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

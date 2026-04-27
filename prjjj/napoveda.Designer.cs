@@ -29,22 +29,15 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(napoveda));
-            label1 = new Label();
             button1 = new Button();
+            richTextBox1 = new RichTextBox();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(252, 156);
-            label1.Name = "label1";
-            label1.Size = new Size(218, 120);
-            label1.TabIndex = 0;
-            label1.Text = "Vítejte ve hře Chcete se stát milionářem!\r\n\r\n- Vyber správnou odpověď A/B/C/D\r\n- Máš k dispozici nápovědy\r\n- Každá správná odpověď tě posune dál\r\n- Když odpovíš špatně, končíš\r\n\r\nHodně štěstí!";
             // 
             // button1
             // 
-            button1.Location = new Point(252, 336);
+            button1.Location = new Point(287, 363);
             button1.Name = "button1";
             button1.Size = new Size(218, 65);
             button1.TabIndex = 1;
@@ -52,24 +45,50 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
+            // richTextBox1
+            // 
+            richTextBox1.Font = new Font("Arial Nova Cond", 12F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            richTextBox1.Location = new Point(405, 12);
+            richTextBox1.Name = "richTextBox1";
+            richTextBox1.ReadOnly = true;
+            richTextBox1.Size = new Size(383, 321);
+            richTextBox1.TabIndex = 2;
+            richTextBox1.Text = resources.GetString("richTextBox1.Text");
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.BackgroundImage = Properties.Resources.money;
+            pictureBox1.Image = Properties.Resources.conmongt_smiley_1914523;
+            pictureBox1.Location = new Point(12, 12);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(387, 321);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 3;
+            pictureBox1.TabStop = false;
+            // 
             // napoveda
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Silver;
             ClientSize = new Size(800, 450);
+            Controls.Add(pictureBox1);
+            Controls.Add(richTextBox1);
             Controls.Add(button1);
-            Controls.Add(label1);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "napoveda";
             Text = "Milionář";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-
-        private Label label1;
         private Button button1;
+        private RichTextBox richTextBox1;
+        private PictureBox pictureBox1;
     }
 }
