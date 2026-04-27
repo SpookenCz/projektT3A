@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,26 +14,26 @@ namespace prjjj
 {
     public partial class hra : Form
     {
-        string[] otazkyLehke = { "Kolik je 2 + 2?", "Který sport nepoužívá míč", "Jaký je chemický symbol pro kyslík?", "Jaký strom má žaludy?", "Jaké je skupenství vody při 0 °C a níž?", "Která barva vznikne smícháním modré a žluté?" };
+        string[] otazkyLehke = { "Kolik je 2 + 2?", "Který sport nepoužívá míč", "Jaký je chemický symbol pro kyslík?", "Jaký strom má žaludy?", "Jaké je skupenství vody při 0 °C a níž?", "Která barva vznikne smícháním modré a žluté?", "Jaké národnosti byl panovník Hirohito", "Jaká velikost triček neexistuje?", "Která z uvedených rostlin není luštěnina?", "Přímý úhel měří:"};
         string[,] odpovediLehke =
         {
-             {"3","4","5","6"}, {"Fotbal","Basketbal","Hokej","Volejbal"}, {"S","H","Hg","O"}, {"Dub","Buk","Borovice","Lípa"}, {"Plynné","Kapalné","Pevné","Žádné"}, {"Fialová","Oranžová","Hnědá","Zelená"},
+             {"3","4","5","6"}, {"Fotbal","Basketbal","Hokej","Volejbal"}, {"S","H","Hg","O"}, {"Dub","Buk","Borovice","Lípa"}, {"Plynné","Kapalné","Pevné","Žádné"}, {"Fialová","Oranžová","Hnědá","Zelená"}, {"Japonské","Vietnamské","Čínské","Korejské"}, {"M","S","L","X"}, {"Sója","Proso","Bob","Čočka"}, {"45 stupňů","60 stupňů","90 stupňů","180 stupňů"},
         };
-        int[] spravnaLehke = { 1, 2, 3, 0, 2, 3 };
+        int[] spravnaLehke = { 1, 2, 3, 0, 2, 3, 0, 3, 1, 3};
 
         string[] otazkyStredni = { "Kolik je 5 * 5?", "Kolik hráčů má jeden fotbalový tým na hřišti?", "Kdo složil slavnou „9. symfonii“?", "Který oceán leží mezi Amerikou a Evropou?", "Jaká měna se používá v Japonsku?", "Nejlepší portugalský hráč", "Kdo objevil Ameriku v roce 1492?", "Která kryptoměna byla vytvořena jako první v roce 2009?", "Která symfonie je oficiální hymnou EU?" };
         string[,] odpovediStredni =
         {
-            {"10","20","25","30"}, {"9","10","11","12"}, {"Mozart","Beethoven","Mach","Chopin"}, {"Severní ledový","Tichý","Indický","Atlantský"}, {"Jen","Won","Chuan","Dollar",}, {"Eusébio","Luís Fígo","Cristiano Ronaldo","Rui Costa",}, {"Vasco da Gama","KryŠtof Kolumbus","Marco Polo","Amerigo Vespucci",}, {"Bitcoin","Etherum","Litecoin","Dogecoin",}, {"Óda na radost","Jupiterská","Rozlučková","Kde domov můj",}
+            {"10","20","25","30"}, {"9","10","11","12"}, {"Mozart","Beethoven","Mach","Chopin"}, {"Severní ledový","Tichý","Indický","Atlantský"}, {"Jen","Won","Chuan","Dollar",}, {"Eusébio","Luís Fígo","Cristiano Ronaldo","Rui Costa",}, {"Vasco da Gama","Kryštof Kolumbus","Marco Polo","Amerigo Vespucci",}, {"Bitcoin","Etherum","Litecoin","Dogecoin",}, {"Óda na radost","Jupiterská","Rozlučková","Kde domov můj",}
         };
         int[] spravnaStredni = { 2, 2, 1, 3, 0, 2, 1, 0, 0};
 
-        string[] otazkyTezke = { "Kolik je 12 * 12?", "Jaký vynález je spojen s bratry Wrightovými?", "Jaký je hlavní prvek v jádru hvězd?", "Kdo byl poslední panovník Ruska před revolucí v roce 1917?", "Který chemik vyvinul periodickou tabulku prvků?", "Ve kterém roce byl představen první iPhone?", "Jak se jmenuje část Prahy, které se říká pražské Benátky?" };
+        string[] otazkyTezke = { "Kolik je 12 * 12?", "Jaký vynález je spojen s bratry Wrightovými?", "Jaký je hlavní prvek v jádru hvězd?", "Kdo byl poslední panovník Ruska před revolucí v roce 1917?", "Který chemik vyvinul periodickou tabulku prvků?", "Ve kterém roce byl představen první iPhone?", "Jak se jmenuje část Prahy, které se říká pražské Benátky?", "V roce 1750 mělo v Evropě nejvíce obyvatel město", "Co předepsal doktor polámenému mravenečkovi v dětské básničce?", "Které z následujících příborů jsou vyobrazeny na dopravní značce informující o blízkosti restaurace?" };
         string[,] odpovediTezke =
         {
-            {"100","144","120","130"}, {"Letadlo","Auto","Rádio","Motocykl"}, {"Helium","Kyslík","Vodík","Uhlík"}, {"Ivan Hrozný","Petr Veliký","Alexandra I.","Mikuláš II."}, {"Mendělejev","Einstein","Curie","Lavoisier"}, {"2005","2007","2004","2006"}, {"Kajetánka","Vyšehrad","Bertramka","Kampa"},
+            {"100","144","120","130"}, {"Letadlo","Auto","Rádio","Motocykl"}, {"Helium","Kyslík","Vodík","Uhlík"}, {"Ivan Hrozný","Petr Veliký","Alexandra I.","Mikuláš II."}, {"Mendělejev","Einstein","Curie","Lavoisier"}, {"2005","2007","2004","2006"}, {"Kajetánka","Vyšehrad","Bertramka","Kampa"}, {"Berlín","Paříž","Madrid","Londýn"}, {"tabletu analgetika","lžíci sirupu","prášek cukru","kapku medu"}, {"Vidlička a nůž","Lžíce a vidlička","Lžíce a nůž","Lžíce, vidlička a nůž"},
         };
-        int[] spravnaTezke = { 1, 0, 2, 3, 0, 1, 3 };
+        int[] spravnaTezke = { 1, 0, 2, 3, 0, 1, 3, 3, 2, 1 };
 
         int aktualniOtazka = 0;
         int obtiznost = 0; // 0 = lehká, 1 = střední, 2 = těžká
@@ -63,6 +64,7 @@ namespace prjjj
             label5.Text = penize[4].ToString() + " Kč";
             label1.BackColor = Color.DarkOrange;
             label5.ForeColor = Color.Yellow;
+            
 
         }
 
@@ -202,17 +204,28 @@ namespace prjjj
             }
             else
             {
+                string spr = "";
+
+                if (spravnaAktualni() == 0)
+                    spr = "A";
+                else if (spravnaAktualni() == 1)
+                    spr = "B";
+                else if (spravnaAktualni() == 2)
+                    spr = "C";
+                else
+                    spr = "D";
+
                 if (pocetSpravnych < 6)
                 {
-                    MessageBox.Show("Jste strašný Milhouse, nevyhrál jste ani korunu, nevracejte se tu už nikdy!", "Konec");
+                    MessageBox.Show($"Jste strašný Milhouse, nevyhrál jste ani korunu, nevracejte se tu už nikdy!. Správná odpověď byla za {spr}", "Konec");
                 }
                 else if (pocetSpravnych < 11)
                 {
-                    MessageBox.Show("Bohužel, ale vyhráváte aspoň 5 000 Kč", "Konec");
+                    MessageBox.Show($"Bohužel, ale vyhráváte aspoň 5 000 Kč. Správná odpověď byla za {spr}", "Konec");
                 }
                 else if (pocetSpravnych < 16)
                 {
-                    MessageBox.Show("Špatná odpověď, ale dokázal jste vyhrát alespoň 100 000 Kč", "Konec");
+                    MessageBox.Show($"Špatná odpověď, ale dokázal jste vyhrát alespoň 100 000 Kč. Správná odpověď byla za {spr}", "Konec");
                 }
 
                 mainForm.Show();
